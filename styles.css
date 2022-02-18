@@ -1,3 +1,41 @@
 html {
     font-size: 10px;
 }
+
+/* calculator styles */
+
+/* .calc  */
+
+.outer-shell {
+    width: 50rem;
+    height: 60rem;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.calc-internal {
+    width: 90%;
+    background-color: #808080;
+}
+
+.screen {
+    height: 10rem;
+}
+
+.buttons {
+    height: 40rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.button {
+    /* width: 14rem; */
+    /* height: 7rem; */
+    font-size: 3rem;
+}
