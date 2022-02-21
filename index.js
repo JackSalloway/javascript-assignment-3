@@ -21,7 +21,7 @@ const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
 const buttonEquals = document.getElementById('equals');
 
-const screen = document.querySelector('.screen');
+const screenBottom = document.querySelector('.screen-bottom');
 
 // event listeners
 // select numbers for equation
@@ -57,7 +57,7 @@ buttonEquals.addEventListener('click', () => {
 });
 
 const updateScreen = () => {
-    return screen.textContent = calcInput;
+    return screenBottom.textContent = calcInput;
 }
 
 const operate = (operator, a, b) => {
