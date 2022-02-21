@@ -1,15 +1,27 @@
 let calcArr = [];
+let calcInput = ''
 
 // query selectors
 const buttons = document.querySelectorAll('.button');
+const buttonOperators = document.querySelectorAll('.button-operators');
+
 
 // event listeners
 buttons.forEach(button => {
+
     button.addEventListener('click', (e) => {
         console.log(e.target.value);
-        calcArr.push(parseInt(e.target.value));
+        calcInput = calcInput + e.target.value;
+        console.log(calcInput);
+        // calcArr.push(parseInt(e.target.value));
     });
 });
+
+buttonOperators.forEach(button => {
+    button.addEventListener('click', (e) => {
+        calcArr.push(parseInt(calcInput));
+    })
+})
 
 const add = (a, b) => {
     return a + b;
