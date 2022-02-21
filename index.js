@@ -11,7 +11,6 @@ buttons.forEach(button => {
 
     button.addEventListener('click', (e) => {
         calcInput = calcInput + e.target.value;
-        // calcArr.push(parseInt(e.target.value));
     });
 });
 
