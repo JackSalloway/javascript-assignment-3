@@ -21,6 +21,7 @@ const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
 const buttonEquals = document.getElementById('equals');
 
+const screenTop = document.querySelector('.screen-top');
 const screenBottom = document.querySelector('.screen-bottom');
 
 // event listeners
@@ -29,7 +30,7 @@ buttons.forEach(button => {
 
     button.addEventListener('click', (e) => {
         calcInput = calcInput + e.target.value;
-        updateScreen()
+        updateBottomScreen();
     });
 });
 
@@ -41,14 +42,11 @@ buttonOperators.forEach(button => {
         }
         calcArr.push(e.target.id);
         calcArr.push(parseInt(calcInput));
-        updateScreen();
-        return calcInput = '';
+        calcInput = ''
+        updateTopScreen(e.target.id);
+        return calcInput;
     });
 });
-
-// screen.addEventListener('click', () => {
-//     console.log('test');
-// });
 
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
@@ -56,7 +54,11 @@ buttonEquals.addEventListener('click', () => {
     console.log(operate(calcArr[0], calcArr[1], calcArr[2]));
 });
 
-const updateScreen = () => {
+const updateTopScreen = () => {
+    return screenTop.textContent = `${calcArr[1]} ${calcArr[0]}`;
+}
+
+const updateBottomScreen = () => {
     return screenBottom.textContent = calcInput;
 }
 
