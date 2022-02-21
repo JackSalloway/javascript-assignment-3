@@ -1,3 +1,16 @@
+let calcArr = [];
+
+// query selectors
+const buttons = document.querySelectorAll('.button');
+
+// event listeners
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        console.log(e.target.value);
+        calcArr.push(parseInt(e.target.value));
+    });
+});
+
 const add = (a, b) => {
     return a + b;
 };
