@@ -1,9 +1,9 @@
 let calcArr = [];
-let calcInput = ''
+let calcInput = '';
 
 // query selectors
 const buttons = document.querySelectorAll('.button');
-const buttonOperators = document.querySelectorAll('.button-operators');
+const buttonOperators = document.querySelectorAll('.button-operator');
 
 
 // event listeners
@@ -19,9 +19,11 @@ buttons.forEach(button => {
 
 buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
+        console.log(e);
         calcArr.push(parseInt(calcInput));
-    })
-})
+        return calcInput = '';
+    });
+});
 
 const add = (a, b) => {
     return a + b;
