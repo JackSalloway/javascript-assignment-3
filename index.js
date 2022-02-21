@@ -21,6 +21,7 @@ buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
         console.log(e);
         calcArr.push(parseInt(calcInput));
+        calcArr.push(e.target.id);
         return calcInput = '';
     });
 });
