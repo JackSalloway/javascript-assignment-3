@@ -1,4 +1,4 @@
-let calcArr = [];
+const calcArr = [];
 let calcInput = '';
 const operations = {
     add: (a, b) => {
