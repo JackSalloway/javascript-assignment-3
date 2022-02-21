@@ -4,7 +4,7 @@ let calcInput = '';
 // query selectors
 const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
-
+const buttonEquals = document.getElementById('equals');
 
 // event listeners
 buttons.forEach(button => {
