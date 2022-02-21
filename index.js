@@ -21,12 +21,15 @@ const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
 const buttonEquals = document.getElementById('equals');
 
+const screen = document.querySelector('.screen');
+
 // event listeners
 // select numbers for equation
 buttons.forEach(button => {
 
     button.addEventListener('click', (e) => {
         calcInput = calcInput + e.target.value;
+        updateScreen()
     });
 });
 
@@ -38,15 +41,24 @@ buttonOperators.forEach(button => {
         }
         calcArr.push(e.target.id);
         calcArr.push(parseInt(calcInput));
+        updateScreen();
         return calcInput = '';
     });
 });
+
+// screen.addEventListener('click', () => {
+//     console.log('test');
+// });
 
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
     calcArr.push(parseInt(calcInput));
     console.log(operate(calcArr[0], calcArr[1], calcArr[2]));
 });
+
+const updateScreen = () => {
+    return screen.textContent = calcInput;
+}
 
 const operate = (operator, a, b) => {
     return operations[operator](a, b);
