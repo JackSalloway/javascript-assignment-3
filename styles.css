@@ -25,6 +25,28 @@ html {
 
 .screen {
     height: 10rem;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+/* .display {
+
+} */
+
+.screen-top {
+    width: 96%;
+    height: 3rem;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.screen-bottom {
+    width: 96%;
+    height: 7rem;
+    font-size: 5rem;
+    line-height: 6rem;
 }
 
 .buttons {
