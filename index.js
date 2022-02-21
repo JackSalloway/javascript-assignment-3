@@ -51,16 +51,22 @@ buttonOperators.forEach(button => {
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
     calcArr.push(parseInt(calcInput));
-    console.log(operate(calcArr[0], calcArr[1], calcArr[2]));
+    operate(calcArr[0], calcArr[1], calcArr[2]);
+    completeEquation();
 });
 
 const updateTopScreen = () => {
     return screenTop.textContent = `${calcArr[1]} ${calcArr[0]}`;
-}
+};
 
 const updateBottomScreen = () => {
     return screenBottom.textContent = calcInput;
-}
+};
+
+const completeEquation = () => {
+    screenTop.textContent = `${calcArr[1]} ${calcArr[0]} ${calcArr[2]} =`;
+    screenBottom.textContent = calcArr[1] + calcArr[2];
+};
 
 const operate = (operator, a, b) => {
     return operations[operator](a, b);
