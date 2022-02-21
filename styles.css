@@ -34,8 +34,6 @@ html {
     grid-template-rows: repeat(4, 1fr);
 }
 
-.button {
-    /* width: 14rem; */
-    /* height: 7rem; */
+.btn {
     font-size: 3rem;
 }
