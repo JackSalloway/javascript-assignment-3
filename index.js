@@ -16,6 +16,9 @@ buttons.forEach(button => {
 
 buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
+        if (calcArr.length === 2) {
+            return;
+        }
         calcArr.push(parseInt(calcInput));
         calcArr.push(e.target.id);
         return calcInput = '';
