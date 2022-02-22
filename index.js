@@ -50,7 +50,12 @@ buttonOperators.forEach(button => {
             updateTopScreen();
             return;
         }
-        calcArr.push(parseInt(calcInput));
+
+        if (parseFloat(calcInput) - parseInt(calcInput) !== 0) {
+            calcArr.push(parseFloat(calcInput));
+        } else {
+            calcArr.push(parseInt(calcInput));
+        }
         calcArr.push(e.target.id);
         calcInput = ''
         updateTopScreen();
