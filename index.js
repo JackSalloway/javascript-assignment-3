@@ -33,6 +33,10 @@ buttons.forEach(button => {
 
     button.addEventListener('click', (e) => {
         calcInput = calcInput + e.target.value;
+        if (result && !calcArr[1]) {
+            calcArr.push(prevValues[0]);
+            calcInput = e.target.value;
+        }
         updateBottomScreen();
     });
 });
@@ -80,6 +84,9 @@ buttonEquals.addEventListener('click', () => {
 
     if (!calcArr[1] && prevValues.length > 0) {
         console.log('test');
+        if (prevValues[1] !== parseInt(calcInput)) {
+            prevValues[1] = parseInt(calcInput);
+        }
         operate(prevValues[0], calcArr[0], prevValues[1]);
         completeEquation();
         return;
