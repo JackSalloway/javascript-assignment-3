@@ -80,6 +80,12 @@ const symbolDecider = () => {
     }
 }
 
+// function that runs the actual calculations
+const operate = (operator, a, b) => {
+    return operations[operator](a, b);
+};
+
+// dom manipulation functions - things that update the stuff on screen
 const updateTopScreen = () => {
     symbolDecider();
     if (result) {
@@ -99,8 +105,4 @@ const completeEquation = () => {
         calcArr.pop()
     }
     calcArr.push(result);
-};
-
-const operate = (operator, a, b) => {
-    return operations[operator](a, b);
 };
