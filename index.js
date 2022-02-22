@@ -16,6 +16,7 @@ const operations = {
     }
 }
 let symbol = ''
+const prevValues = [];
 
 // query selectors
 // button query selectors
@@ -39,15 +40,22 @@ buttons.forEach(button => {
 // select operator for equation
 buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
+        // early return if first number and operator have not been selected
         if (calcArr.length === 2) {
             return;
         }
-
+        // checks if one calculation has already been completed
         if (result) {
             calcArr.push(e.target.id);
             calcInput = '';
             symbolDecider();
             updateTopScreen();
+            // prevents using previous values
+            if (prevValues.length > 0) {
+                while (prevValues.length > 0) {
+                    prevValues.pop()
+                }
+            }
             return;
         }
 
@@ -66,7 +74,14 @@ buttonOperators.forEach(button => {
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
     if (!calcArr[0]) {
-        console.log('select a number/operator')
+        console.log('select a number/operator');
+        return;
+    }
+
+    if (!calcArr[1] && prevValues.length > 0) {
+        console.log('test');
+        operate(prevValues[0], calcArr[0], prevValues[1]);
+        completeEquation();
         return;
     }
     calcArr.push(parseInt(calcInput));
@@ -114,8 +129,17 @@ const completeEquation = () => {
     //     screenBottom.textContent = 21;
     //     return;
     // }
-    screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
-    screenBottom.textContent = result;
+
+    // checks if using quick calculate functionality with previous values
+    if (!calcArr[1] && prevValues.length > 0) {
+        screenTop.textContent = `${calcArr[0]} ${symbol} ${prevValues[1]} =`;
+        screenBottom.textContent = result;
+    } else {
+        screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
+        screenBottom.textContent = result;
+        prevValues.push(calcArr[1], calcArr[2]);
+    }
+
     while (calcArr.length > 0) {
         calcArr.pop()
     }
