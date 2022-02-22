@@ -109,7 +109,8 @@ buttonEquals.addEventListener('click', () => {
         completeEquation();
         return;
     }
-    calcArr.push(parseInt(calcInput));
+    // why use parseInt over parseFloat??
+    calcArr.push(parseFloat(calcInput));
     operate(calcArr[1], calcArr[0], calcArr[2]);
     completeEquation();
 });
