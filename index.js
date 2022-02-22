@@ -81,6 +81,7 @@ buttonOperators.forEach(button => {
             return;
         }
 
+        // checks if the inputted number is an integer or not
         if (parseFloat(calcInput) - parseInt(calcInput) !== 0) {
             calcArr.push(parseFloat(calcInput));
         } else {
@@ -89,7 +90,6 @@ buttonOperators.forEach(button => {
         calcArr.push(e.target.id);
         calcInput = ''
         updateTopScreen();
-        // return calcInput;
     });
 });
 
@@ -101,7 +101,7 @@ buttonEquals.addEventListener('click', () => {
     }
 
     if (!calcArr[1] && prevValues.length > 0) {
-        console.log('test');
+        // prevents chaining new calcInput value on the end of the old one
         if (prevValues[1] !== parseInt(calcInput)) {
             prevValues[1] = parseInt(calcInput);
         }
