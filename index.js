@@ -62,7 +62,7 @@ buttons.forEach(button => {
 // select operator for equation
 buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
-        // early return if first number and operator have not been selected
+        // early return if first number and operator have been selected
         if (calcArr.length === 2) {
             return;
         }
@@ -82,10 +82,10 @@ buttonOperators.forEach(button => {
         }
 
         // checks if the inputted number is an integer or not
-        if (parseFloat(calcInput) - parseInt(calcInput) !== 0) {
+        if (parseFloat(calcInput) - parseInt(calcInput, 10) !== 0) {
             calcArr.push(parseFloat(calcInput));
         } else {
-            calcArr.push(parseInt(calcInput));
+            calcArr.push(parseInt(calcInput, 10));
         }
         calcArr.push(e.target.id);
         calcInput = ''
@@ -102,8 +102,8 @@ buttonEquals.addEventListener('click', () => {
 
     if (!calcArr[1] && prevValues.length > 0) {
         // prevents chaining new calcInput value on the end of the old one
-        if (prevValues[1] !== parseInt(calcInput)) {
-            prevValues[1] = parseInt(calcInput);
+        if (prevValues[1] !== parseInt(calcInput, 10)) {
+            prevValues[1] = parseInt(calcInput, 10);
         }
         operate(prevValues[0], calcArr[0], prevValues[1]);
         completeEquation();
@@ -149,7 +149,7 @@ const updateBottomScreen = () => {
 };
 
 const completeEquation = () => {
-    // 9 + 10 logic (meme)
+    // 9 + 10 logic(meme)
     // if (calcArr[0] == 9 && symbol == '+' && calcArr[2] == 10) {
     //     screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
     //     screenBottom.textContent = 21;
