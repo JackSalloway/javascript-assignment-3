@@ -104,6 +104,12 @@ const updateBottomScreen = () => {
 };
 
 const completeEquation = () => {
+    // 9 + 10 logic (meme)
+    // if (calcArr[0] == 9 && symbol == '+' && calcArr[2] == 10) {
+    //     screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
+    //     screenBottom.textContent = 21;
+    //     return;
+    // }
     screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
     screenBottom.textContent = result;
     while (calcArr.length > 0) {
