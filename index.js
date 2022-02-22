@@ -93,7 +93,9 @@ const updateBottomScreen = () => {
 const completeEquation = () => {
     screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
     screenBottom.textContent = result;
-    calcArr = [];
+    while (calcArr.length > 0) {
+        calcArr.pop()
+    }
     calcArr.push(result);
 };
 
