@@ -42,11 +42,17 @@ buttonOperators.forEach(button => {
         if (calcArr.length === 2) {
             return;
         }
+
+        if (result) {
+            calcArr.push(e.target.id);
+            symbolDecider();
+            updateTopScreen();
+        }
         calcArr.push(parseInt(calcInput));
         calcArr.push(e.target.id);
         calcInput = ''
         updateTopScreen();
-        return calcInput;
+        // return calcInput;
     });
 });
 
@@ -74,6 +80,9 @@ const symbolDecider = () => {
 
 const updateTopScreen = () => {
     symbolDecider();
+    if (result) {
+        return screenTop.textContent = `${result} ${symbol}`;
+    }
     return screenTop.textContent = `${calcArr[0]} ${symbol}`;
 };
 
@@ -82,9 +91,10 @@ const updateBottomScreen = () => {
 };
 
 const completeEquation = () => {
-
     screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
     screenBottom.textContent = result;
+    calcArr = [];
+    calcArr.push(result);
 };
 
 const operate = (operator, a, b) => {
