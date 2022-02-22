@@ -65,6 +65,10 @@ buttonOperators.forEach(button => {
 
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
+    if (!calcArr[0]) {
+        console.log('select a number')
+        return;
+    }
     calcArr.push(parseInt(calcInput));
     operate(calcArr[1], calcArr[0], calcArr[2]);
     completeEquation();
