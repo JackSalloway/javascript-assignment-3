@@ -29,6 +29,23 @@ const screenTop = document.querySelector('.screen-top');
 const screenBottom = document.querySelector('.screen-bottom');
 
 // event listeners
+
+// reset all variable values and Element inner text
+buttonReset.addEventListener('click', () => {
+    while (calcArr.length > 0) {
+        calcArr.pop();
+    }
+    while (prevValues.length > 0) {
+        prevValues.pop();
+    }
+    calcInput = '';
+    result = undefined;
+    symbol = '';
+    screenTop.textContent = '';
+    screenBottom.textContent = '';
+    console.log('Calculator cleared!');
+});
+
 // select numbers for equation
 buttons.forEach(button => {
 
