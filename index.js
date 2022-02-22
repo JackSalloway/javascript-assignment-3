@@ -23,6 +23,7 @@ const prevValues = [];
 const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
 const buttonEquals = document.getElementById('equals');
+const buttonReset = document.getElementById('reset');
 
 const screenTop = document.querySelector('.screen-top');
 const screenBottom = document.querySelector('.screen-bottom');
