@@ -45,8 +45,10 @@ buttonOperators.forEach(button => {
 
         if (result) {
             calcArr.push(e.target.id);
+            calcInput = '';
             symbolDecider();
             updateTopScreen();
+            return;
         }
         calcArr.push(parseInt(calcInput));
         calcArr.push(e.target.id);
