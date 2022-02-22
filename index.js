@@ -42,8 +42,8 @@ buttonOperators.forEach(button => {
         if (calcArr.length === 2) {
             return;
         }
-        calcArr.push(e.target.id);
         calcArr.push(parseInt(calcInput));
+        calcArr.push(e.target.id);
         calcInput = ''
         updateTopScreen();
         return calcInput;
@@ -53,19 +53,19 @@ buttonOperators.forEach(button => {
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
     calcArr.push(parseInt(calcInput));
-    operate(calcArr[0], calcArr[1], calcArr[2]);
+    operate(calcArr[1], calcArr[0], calcArr[2]);
     completeEquation();
 });
 
 // unsure how to do this a better way, so added this function in for now
 const symbolDecider = () => {
-    if (calcArr[0] === 'add') {
+    if (calcArr[1] === 'add') {
         symbol = '+';
-    } else if (calcArr[0] === 'subtract') {
+    } else if (calcArr[1] === 'subtract') {
         symbol = '-';
-    } else if (calcArr[0] === 'multiply') {
+    } else if (calcArr[1] === 'multiply') {
         symbol = 'x';
-    } else if (calcArr[0] === 'divide') {
+    } else if (calcArr[1] === 'divide') {
         symbol = '÷';
     } else {
         console.log('There is an issue with the operator object');
@@ -74,7 +74,7 @@ const symbolDecider = () => {
 
 const updateTopScreen = () => {
     symbolDecider();
-    return screenTop.textContent = `${calcArr[1]} ${symbol}`;
+    return screenTop.textContent = `${calcArr[0]} ${symbol}`;
 };
 
 const updateBottomScreen = () => {
@@ -83,7 +83,7 @@ const updateBottomScreen = () => {
 
 const completeEquation = () => {
 
-    screenTop.textContent = `${calcArr[1]} ${symbol} ${calcArr[2]} =`;
+    screenTop.textContent = `${calcArr[0]} ${symbol} ${calcArr[2]} =`;
     screenBottom.textContent = result;
 };
 
