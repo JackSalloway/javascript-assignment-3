@@ -54,10 +54,12 @@ buttons.forEach(button => {
         if (calcInput.includes('.') && e.target.value === '.') {
             return;
         }
-        if (calcInput === '0' && e.target.value !== '.') {
-            return
-        }
         if (calcInput === '0' && e.target.value === '0') {
+            return;
+        }
+        if (calcInput === '0' && e.target.value !== '.') {
+            calcInput = e.target.value;
+            updateBottomScreen();
             return
         }
         calcInput = calcInput + e.target.value;
