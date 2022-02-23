@@ -1,39 +1,50 @@
 html {
     font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background-color: rgba(0, 255, 255, 0.2);
 }
 
 /* calculator styles */
-
-/* .calc  */
-
 .outer-shell {
+    position: absolute;
+    top: 20%;
+    left: 0; 
+    right: 0; 
     width: 50rem;
     height: 60rem;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #808080;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5rem;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
 }
 
 .calc-internal {
     width: 90%;
-    background-color: #808080;
 }
 
+/* screen styles */
 .screen {
     height: 10rem;
-    
     display: flex;
     flex-direction: column;
+    background-color: lightgray;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
     text-align: end;
 }
-
-/* .display {
-
-} */
 
 .screen-top {
     width: 96%;
@@ -49,13 +60,36 @@ html {
     line-height: 6rem;
 }
 
+/* button styles */
 .buttons {
     height: 40rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.button-operator.btn {
+    background-color: orange;
+}
+
+#equals.btn {
+    background-color: cadetblue;
+}
+
+.button-c.btn {
+    background-color: rgba(139, 0, 0, 0.6);
+
+}
+
+#back.btn {
+    background-color: rgba(139, 0, 0, 0.6);
+
 }
 
 .btn {
     font-size: 3rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
 }
