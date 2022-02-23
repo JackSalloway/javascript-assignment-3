@@ -54,6 +54,9 @@ buttons.forEach(button => {
         if (calcInput.includes('.') && e.target.value === '.') {
             return;
         }
+        if (calcInput === '0' && e.target.value === '0') {
+            return
+        }
         calcInput = calcInput + e.target.value;
         if (result && !calcArr[1]) {
             calcArr.push(prevValues[0]);
