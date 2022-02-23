@@ -66,6 +66,12 @@ buttons.forEach(button => {
 buttonOperators.forEach(button => {
     button.addEventListener('click', (e) => {
         // early return if first number and operator have been selected
+        if (calcArr.length === 2 && calcInput !== '') {
+            calcArr.push(parseFloat(calcInput));
+            operate(calcArr[1], calcArr[0], calcArr[2]);
+            completeEquation();
+        }
+
         if (calcArr.length === 2) {
             return;
         }
