@@ -158,7 +158,11 @@ const completeEquation = () => {
     //     screenBottom.textContent = 21;
     //     return;
     // }
-
+    if (symbol === '÷' && (calcArr[0] === 0 || calcArr[2] === 0)) {
+        screenTop.textContent = 'Bruh';
+        screenBottom.textContent = 'What the hell bruh';
+        return
+    }
     // checks if using quick calculate functionality with previous values
     if (!calcArr[1] && prevValues.length > 0) {
         screenTop.textContent = `${calcArr[0]} ${symbol} ${prevValues[1]} =`;
