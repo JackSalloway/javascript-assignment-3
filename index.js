@@ -43,7 +43,7 @@ buttonReset.addEventListener('click', () => {
     result = undefined;
     symbol = '';
     screenTop.textContent = '';
-    screenBottom.textContent = '';
+    screenBottom.textContent = '0';
     console.log('Calculator cleared!');
 });
 
