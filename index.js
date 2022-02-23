@@ -50,6 +50,9 @@ buttonReset.addEventListener('click', () => {
 buttons.forEach(button => {
 
     button.addEventListener('click', (e) => {
+        if (calcInput.includes('.') && e.target.value === '.') {
+            return;
+        }
         calcInput = calcInput + e.target.value;
         if (result && !calcArr[1]) {
             calcArr.push(prevValues[0]);
