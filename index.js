@@ -70,7 +70,7 @@ buttonOperators.forEach(button => {
             return;
         }
         // checks if one calculation has already been completed
-        if (result) {
+        if (result || result === 0) {
             calcArr.push(e.target.id);
             calcInput = '';
             symbolDecider();
@@ -98,7 +98,7 @@ buttonOperators.forEach(button => {
 
 // select final number for equation and equate
 buttonEquals.addEventListener('click', () => {
-    if (!calcArr[0]) {
+    if (calcArr.length < 1) {
         console.log('select a number/operator');
         return;
     }
@@ -158,7 +158,7 @@ const completeEquation = () => {
     //     screenBottom.textContent = 21;
     //     return;
     // }
-    if (symbol === '÷' && (calcArr[0] === 0 || calcArr[2] === 0)) {
+    if (symbol === '÷' && calcArr[2] === 0) {
         screenTop.textContent = 'Bruh';
         screenBottom.textContent = 'What the hell bruh';
         return
