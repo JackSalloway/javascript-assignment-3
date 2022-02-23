@@ -24,6 +24,7 @@ const buttons = document.querySelectorAll('.button');
 const buttonOperators = document.querySelectorAll('.button-operator');
 const buttonEquals = document.getElementById('equals');
 const buttonReset = document.getElementById('reset');
+const buttonBack = document.getElementById('back');
 
 const screenTop = document.querySelector('.screen-top');
 const screenBottom = document.querySelector('.screen-bottom');
@@ -60,6 +61,21 @@ buttons.forEach(button => {
         }
         updateBottomScreen();
     });
+});
+
+buttonBack.addEventListener('click', () => {
+    if (calcInput === '') {
+        console.log('No input to remove.');
+        return;
+    }
+
+    if (result && calcInput == prevValues[1]) {
+        console.log('Calculator is displaying old input, to remove values select a new input');
+        return;
+    }
+
+    calcInput = calcInput.substring(0, calcInput.length - 1);
+    updateBottomScreen();
 });
 
 // select operator for equation
